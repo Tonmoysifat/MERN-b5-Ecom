@@ -35,8 +35,6 @@ const CartListService = async (req) => {
         let unWindCategoriesStage = {$unwind: "$category"};
         let ProjectionStage = {
             $project: {
-                "_id":0,
-                "userID":0,
                 "createdAt":0,
                 "updatedAt":0,
                 "product._id":0,

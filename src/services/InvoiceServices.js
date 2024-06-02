@@ -99,7 +99,6 @@ const createInvoiceService = async (req) => {
 
     let paymentSetting = await PaymentSettingModel.find()
     const form = new FormData()
-
     form.append("store_id", paymentSetting[0]["store_id"])
     form.append("store_passwd", paymentSetting[0]["store_passwd"])
     form.append("total_amount", payable.toString())
@@ -145,8 +144,8 @@ const createInvoiceService = async (req) => {
 }
 const paymentSuccessService = async (req) => {
     try {
-        let trxID = req.params.trxID;
-        await InvoiceModel.updateOne({tran_id: trxID}, {payment_status: "Success"})
+        let tran_id = req.params.tran_id;
+        await InvoiceModel.updateOne({tran_id: tran_id}, {payment_status: "Success"})
         return {status: "Success"}
     } catch (e) {
         return {status: "Fail", message: e.toString()}
@@ -154,8 +153,8 @@ const paymentSuccessService = async (req) => {
 }
 const paymentFailService = async (req) => {
     try {
-        let trxID = req.params.trxID;
-        await InvoiceModel.updateOne({tran_id: trxID}, {payment_status: "Fail"})
+        let tran_id = req.params.tran_id;
+        await InvoiceModel.updateOne({tran_id: tran_id}, {payment_status: "Fail"})
         return {status: "Fail"}
     } catch (e) {
         return {status: "Fail", message: e.toString()}
@@ -163,8 +162,8 @@ const paymentFailService = async (req) => {
 }
 const paymentCancelService = async (req) => {
     try {
-        let trxID = req.params.trxID;
-        await InvoiceModel.updateOne({tran_id: trxID}, {payment_status: "Cancel"})
+        let tran_id = req.params.tran_id;
+        await InvoiceModel.updateOne({tran_id: tran_id}, {payment_status: "Cancel"})
         return {status: "Cancel"}
     } catch (e) {
         return {status: "Fail", message: e.toString()}
@@ -172,9 +171,9 @@ const paymentCancelService = async (req) => {
 }
 const paymentIPNService = async (req) => {
     try {
-        let trxID = req.params.trxID;
+        let tran_id = req.params.tran_id;
         let status = req.body["status"]
-        await InvoiceModel.updateOne({tran_id: trxID}, {payment_status: status})
+        await InvoiceModel.updateOne({tran_id: tran_id}, {payment_status: status})
         return {status: status}
     } catch (e) {
         return {status: "Fail", message: e.toString()}

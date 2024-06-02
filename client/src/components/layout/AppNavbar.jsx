@@ -24,8 +24,8 @@ const AppNavbar = () => {
         }
     }
     useEffect(() => {
-        (async ()=>{
-            if (isLogin()){
+        (async () => {
+            if (isLogin()) {
                 await CartListRequest()
                 await WishListRequest()
             }
@@ -61,7 +61,7 @@ const AppNavbar = () => {
                 </div>
             </div>
         </div>
-        <nav className="navbar sticky-top bg-white navbar-expand-lg navbar-light py-3">
+        <nav className="navbar shadow-sm sticky-top bg-white navbar-expand-lg navbar-light py-3">
             <div className="container">
                 <Link className="navbar-brand" to="/">
                     <img className="img-fluid" src={logo} alt="" width="96px"/>
@@ -73,7 +73,38 @@ const AppNavbar = () => {
                 <div className="collapse navbar-collapse" id="nav06">
                     <ul className="navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 ms-lg-3">
                             <span className="nav-item me-4">
-                                <Link className="nav-link" to="/">Home</Link>
+                                <Link className="btn ms-4 btn-light position-relative" to="/">
+                                    <i className="bi bi-house"></i> Home
+                                </Link>
+                                <Link to={isLogin()?"/cart":"/login"} type="button" className="btn ms-4 btn-light position-relative">
+                                   <i className="bi text-dark bi-bag"></i> Cart
+                                    {
+                                        CartCount > 0 && (
+                                            <span
+                                                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                       {CartCount}
+                                                <span className="visually-hidden">unread messages</span>
+                                    </span>
+                                        )
+                                    }
+                                </Link>
+                                <Link to={isLogin()?"/wish":"/login"} type="button" className="btn ms-4 btn-light position-relative">
+                                   <i className="bi text-dark bi-heart"></i> Wish
+                                    {
+                                        WishCount > 0 && (
+                                            <span
+                                                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                                       {WishCount}
+                                                <span className="visually-hidden">unread messages</span>
+                                    </span>
+                                        )
+                                    }
+                                </Link>
+
+                                <Link to={isLogin() ? "/orders" : "/login"} type="button"
+                                      className="btn ms-4 btn-light position-relative">
+                                   <i className="bi text-dark  bi-truck"></i> Orders
+                                </Link>
                             </span>
                     </ul>
                 </div>
@@ -90,22 +121,6 @@ const AppNavbar = () => {
                             </svg>
                         </Link>
                     </div>
-                    <Link to="/cart" type="button" className="btn ms-4 btn-light position-relative">
-                        <i className="bi text-dark bi-bag"></i>
-                        <span
-                            className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                                 {CartCount}
-                             <span className="visually-hidden">unread messages</span>
-                        </span>
-                    </Link>
-                    <Link to="/wish" type="button" className="btn ms-4 btn-light position-relative">
-                        <i className="bi text-dark bi-heart"></i>
-                        <span
-                            className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                                 {WishCount}
-                            <span className="visually-hidden">unread messages</span>
-                        </span>
-                    </Link>
                     {isLogin() ? (<>
                             <Link type="button" className="btn ms-3 btn-success d-flex"
                                   to="/profile">Profile</Link>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SubmitButton from "./SubmitButton.jsx";
 import UserStore from "../../store/UserStore.js";
 import validationHelper from "../../utility/validationHelper.js";
@@ -10,6 +10,7 @@ const LoginForm = () => {
     const {EmailFormData, EmailDataOnChange,UserOtpRequest} = UserStore()
     const onFormSubmit =async ()=>{
         if (!validationHelper.IsEmail(EmailFormData.email)){
+            setloginbtn(true)
             toast.error('Valid Email Address Required!',
                 {
                     // icon: '👏',

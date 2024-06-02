@@ -7,15 +7,18 @@ exports.CreateInvioce = async (req,res)=>{
 }
 exports.PaymentSuccess = async (req,res)=>{
     let result = await paymentSuccessService(req)
-    res.json(result)
+    // res.json(result)
+    return res.redirect("/orders")
 }
 exports.PaymentFail = async (req,res)=>{
     let result = await paymentFailService(req)
-    res.json(result)
+    // res.json(result)
+    return res.redirect("/orders")
 }
 exports.PaymentCancel = async (req,res)=>{
     let result = await paymentCancelService(req)
-    res.json(result)
+    // res.json(result)
+    return res.redirect("/orders")
 }
 exports.PaymentIPN = async (req,res)=>{
     let result = await paymentIPNService(req)

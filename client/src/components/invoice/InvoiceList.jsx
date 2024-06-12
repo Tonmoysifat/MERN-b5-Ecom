@@ -29,11 +29,11 @@ const InvoiceList = () => {
             <div className="container mt-3">
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="card p-4">
+                        <div className="card p-2 p-lg-4">
                             <ul className="list-group list-group-flush">
                                 {
                                     InvoiceList.map((item,i)=>{
-                                        return(<li key={i} className="list-group-item d-flex justify-content-between align-items-start">
+                                        return(<li key={i} className="list-group-item d-flex flex-column flex-lg-row justify-content-between align-items-start">
                                                 <div className="ms-2 me-auto">
                                                     <div className="">
                                                         <p className="m-1"><b>Invoice No::</b> {item['tran_id']}</p>
@@ -43,7 +43,7 @@ const InvoiceList = () => {
                                                         <p className="m-1"><b>Delivery: </b> {item['delivery_status']}</p>
                                                     </div>
                                                 </div>
-                                                <Link className="btn btn-success" to={`/invoice/${item['_id']}`}>Details</Link>
+                                                <Link className="btn btn-success ms-2 my-4" to={`/invoice/${item['_id']}`}>Details</Link>
                                             </li>
                                         )
                                     })

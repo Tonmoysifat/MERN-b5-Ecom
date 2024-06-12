@@ -55,7 +55,7 @@ const InvoiceDetails = () => {
                                 {
                                     InvoiceDetails.map((item, i) => {
                                         return (<li key={i}
-                                                    className="list-group-item d-flex justify-content-between align-items-start">
+                                                    className="list-group-item d-flex flex-column flex-lg-row justify-content-between align-items-start">
                                                 <img
                                                     className="rounded-1"
                                                     alt=""
@@ -79,7 +79,7 @@ const InvoiceDetails = () => {
                                                 </div>
                                                 <button
                                                     onClick={() => ReviewModal(item["productID"])}
-                                                    className="btn btn-success"
+                                                    className="btn btn-success my-4 my-lg-0"
                                                 >
                                                     Create Review
                                                 </button>

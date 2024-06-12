@@ -91,7 +91,7 @@ const Details = () => {
                                 )
                             }
                             <div className="row">
-                                <div className="col-4 p-2">
+                                <div className="col-xs-12 col-md-4 p-2">
                                     <label className="bodySmal">Size</label>
                                     <select value={CartForm.size} onChange={(e) => {
                                         CartFormOnChange("size", e.target.value)
@@ -106,7 +106,7 @@ const Details = () => {
                                         }
                                     </select>
                                 </div>
-                                <div className="col-4 p-2">
+                                <div className="col-xs-12 col-md-4 p-2">
                                     <label className="bodySmal">Color</label>
                                     <select value={CartForm.color} onChange={(e) => {
                                         CartFormOnChange("color", e.target.value)
@@ -121,7 +121,7 @@ const Details = () => {
                                         }
                                     </select>
                                 </div>
-                                <div className="col-4 p-2">
+                                <div className="col-xs-12 col-md-4 p-2">
                                     <label className="bodySmal">Quantity</label>
                                     <div className="input-group my-2">
                                         <button onClick={decreaseQuantity} className="btn btn-outline-secondary">-
@@ -132,12 +132,12 @@ const Details = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="col-4 p-2">
+                                <div className="col-xs-12 col-md-4 p-2">
                                     <CartSubmitButton onClick={async () => {
                                         await AddCart(ProductDetails[0]["_id"])
                                     }} className="btn w-100 btn-success" text="Add to Cart"/>
                                 </div>
-                                <div className="col-4 p-2">
+                                <div className="col-xs-12 col-md-4 p-2">
                                     <WishSubmitButton onClick={async ()=>{await AddWish(ProductDetails[0]["_id"])}} className="btn w-100 btn-success" text="Add to Wish"/>
                                 </div>
                             </div>

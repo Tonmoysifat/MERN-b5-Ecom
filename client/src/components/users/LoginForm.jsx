@@ -10,7 +10,6 @@ const LoginForm = () => {
     const {EmailFormData, EmailDataOnChange,UserOtpRequest} = UserStore()
     const onFormSubmit =async ()=>{
         if (!validationHelper.IsEmail(EmailFormData.email)){
-            setloginbtn(true)
             toast.error('Valid Email Address Required!',
                 {
                     // icon: '👏',

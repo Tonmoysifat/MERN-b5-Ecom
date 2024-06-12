@@ -38,10 +38,10 @@ const AppNavbar = () => {
                     <div className="col-md-6">
                             <span>
                                 <span className="f-12">
-                                    <i className="bi bi-envelope"></i> Support@PlanB.com
+                                    <i className="bi bi-envelope"></i> Support@sellmode.com
                                 </span>
                                 <span className="f-12 mx-2">
-                                    <i className="bi bi-envelope"></i> 01774688159
+                                    <i className="bi bi-envelope"></i> 01757416917
                                 </span>
                             </span>
                     </div>
@@ -76,7 +76,8 @@ const AppNavbar = () => {
                                 <Link className="btn ms-4 btn-light position-relative" to="/">
                                     <i className="bi bi-house"></i> Home
                                 </Link>
-                                <Link to={isLogin()?"/cart":"/login"} type="button" className="btn ms-4 btn-light position-relative">
+                                <Link to={isLogin() ? "/cart" : "/login"} type="button"
+                                      className="btn ms-4 btn-light position-relative">
                                    <i className="bi text-dark bi-bag"></i> Cart
                                     {
                                         CartCount > 0 && (
@@ -88,7 +89,8 @@ const AppNavbar = () => {
                                         )
                                     }
                                 </Link>
-                                <Link to={isLogin()?"/wish":"/login"} type="button" className="btn ms-4 btn-light position-relative">
+                                <Link to={isLogin() ? "/wish" : "/login"} type="button"
+                                      className="btn ms-4 btn-light position-relative">
                                    <i className="bi text-dark bi-heart"></i> Wish
                                     {
                                         WishCount > 0 && (
@@ -107,31 +109,32 @@ const AppNavbar = () => {
                                 </Link>
                             </span>
                     </ul>
-                </div>
-                <div className=" d-lg-flex">
-                    <div className="input-group">
-                        <input onChange={(e) => setSearchKeyword(e.target.value)} className="form-control"
-                               type="search" placeholder="Search" aria-label="Search"/>
-                        <Link to={SearchKeyword.length > 0 ? `/by-keyword/${SearchKeyword}` : `/`}
-                              className="btn btn-outline-dark" type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor" style={{width: 24, height: 24}}>
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0
+
+                    <div className="ms-lg-5 d-lg-flex">
+                        <div className="input-group">
+                            <input onChange={(e) => setSearchKeyword(e.target.value)} className="form-control"
+                                   type="search" placeholder="Search" aria-label="Search"/>
+                            <Link to={SearchKeyword.length > 0 ? `/by-keyword/${SearchKeyword}` : `/`}
+                                  className="btn btn-outline-dark" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor" style={{width: 24, height: 24}}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0
                                     7 7 0 0114 0z"/>
-                            </svg>
-                        </Link>
+                                </svg>
+                            </Link>
+                        </div>
+                        {isLogin() ? (<>
+                                <Link type="button" className="btn mt-4 mt-lg-0 ms-0 ms-lg-3 btn-success d-flex justify-content-center"
+                                      to="/profile">Profile</Link>
+                                <Link onClick={onLogout} type="button" className="btn ms-0 ms-lg-3 mt-4 mt-lg-0 btn-success d-flex justify-content-center"
+                                >Logout</Link>
+                            </>
+
+                        ) : (<Link to="/login" type="button" className="btn mt-4 mt-lg-0 ms-0 ms-lg-3 btn-success d-flex justify-content-center">Login</Link>
+
+                        )}
+
                     </div>
-                    {isLogin() ? (<>
-                            <Link type="button" className="btn ms-3 btn-success d-flex"
-                                  to="/profile">Profile</Link>
-                            <Link onClick={onLogout} type="button" className="btn ms-3 btn-success d-flex"
-                            >Logout</Link>
-                        </>
-
-                    ) : (<Link to="/login" type="button" className="btn ms-3 btn-success d-flex">Login</Link>
-
-                    )}
-
                 </div>
             </div>
         </nav>

@@ -14,10 +14,10 @@ const mongoose =require('mongoose');
 const path = require("path");
 
 
-// let URL = "mongodb+srv://<username>:<password>@atlascluster.ufe1snn.mongodb.net/Sellmode-mernEcom"
-// let OPTION={user:'Tonmoy_Ahammed_Sifat',pass:'SifatMogo10DB',autoIndex:true}
-let URL="mongodb://localhost:27017/Sellmode-mernEcom"
-let OPTION={user:'',pass:"",autoIndex:true};
+let URL = "mongodb+srv://<username>:<password>@atlascluster.ufe1snn.mongodb.net/Sellmode-mernEcom"
+let OPTION={user:'Tonmoy_Ahammed_Sifat',pass:'SifatMogo10DB',autoIndex:true}
+// let URL="mongodb://localhost:27017/Sellmode-mernEcom"
+// let OPTION={user:'',pass:"",autoIndex:true};
 mongoose.connect(URL,OPTION).then((res)=>{
     console.log("Database Connected")
 }).catch((err)=>{

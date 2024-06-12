@@ -12,10 +12,11 @@ const cors =require('cors');
 const cookieParser = require('cookie-parser');
 const mongoose =require('mongoose');
 const path = require("path");
+require("dotenv").config();
 
 
 let URL = "mongodb+srv://<username>:<password>@atlascluster.ufe1snn.mongodb.net/Sellmode-mernEcom"
-let OPTION={user:'Tonmoy_Ahammed_Sifat',pass:'SifatMogo10DB',autoIndex:true}
+let OPTION={user:process.env.DB_USER,pass:process.env.DB_PASS,autoIndex:true}
 // let URL="mongodb://localhost:27017/Sellmode-mernEcom"
 // let OPTION={user:'',pass:"",autoIndex:true};
 mongoose.connect(URL,OPTION).then((res)=>{

@@ -7,8 +7,8 @@ export default defineConfig({
   server:{
     proxy:{
       "/api/":{
-        // target:"http://localhost:4030"
-        target:"https://mern-b5-ecom.vercel.app/"
+        target:"http://localhost:4030"
+        // target:"https://mern-b5-ecom.vercel.app/"
       }
     }
   }

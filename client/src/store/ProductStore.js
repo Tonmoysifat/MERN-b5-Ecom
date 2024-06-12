@@ -18,7 +18,7 @@ const ProductStore = create((set) => ({
     },
     SliderList: null,
     SliderListRequest: async () => {
-        let res = await axios.get("/api/ProductSliderList")
+        let res = await axios.get("https://mern-b5-ecom.vercel.app/api/ProductSliderList")
         if (res.data["status"] === "Success") {
             set({SliderList: res.data["data"]})
         }

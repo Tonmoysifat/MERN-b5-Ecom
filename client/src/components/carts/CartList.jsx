@@ -24,7 +24,7 @@ const CartList = () => {
             </div>
         </div>)
     } else if (CartList.length === 0) {
-        return (<NoData/>)
+        return (<NoData text="No Product Added To The Cart List"/>)
     } else {
         return (<div className="container mt-3">
             <div className="row">

@@ -30,11 +30,22 @@ const Details = () => {
 
     const AddCart = async (productID) => {
         if (isLogin()){
-            let res = await CartSaveRequest(CartForm, productID, quantity)
-            if (res) {
-                toast.success("Cart Item Added")
-                await CartListRequest()
+            if (CartForm.size.length>0 && CartForm.color.length>0){
+                let res = await CartSaveRequest(CartForm, productID, quantity)
+                if (res) {
+                    toast.success("Cart Item Added")
+                    await CartListRequest()
+                }
             }
+            else {
+                if (CartForm.size.length>0){
+                    toast.error("Please Select the Color Of The Product")
+                }
+                else {
+                    toast.error("Please Select the Size Of The Product")
+                }
+            }
+
         }
         else {
             sessionStorage.clear();

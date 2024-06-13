@@ -126,11 +126,11 @@ body {
 .card{
     border: none;
     box-shadow: 0 4px 8px -8px rgba(8,31,77,.6) !important;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    /*cursor: pointer;*/
+    /*transition: transform 0.3s ease;*/
 }
 .card:hover{
-    transform: translateY(-5px);
+    /*transform: translateY(-5px);*/
     box-shadow: 0 12px 24px -24px rgba(8,31,77,.8) !important;
 }
 
@@ -198,18 +198,31 @@ body {
     flex: 0 0 20%;
     max-width: 20%;
 }
+.side-navbarHei{
+    height: 60vh !important;
+}
 @media (min-width: 768px) {
     .col-sm-5-cols {
         -ms-flex: 0 0 20%;
         flex: 0 0 20%;
         max-width: 20%;
     }
+    .col-sm-8r {
+        width: 12.5%;
+        float: left;
+    }
+    /*.side-navbarHei{*/
+    /*    height: 60vh;*/
+    /*}*/
 }
 @media (min-width: 992px) {
     .col-md-5-cols {
         -ms-flex: 0 0 20%;
         flex: 0 0 20%;
         max-width: 20%;
+    }
+    .side-navbarHei{
+        height: 100vh !important;
     }
 }
 @media (min-width: 1200px) {
@@ -234,12 +247,9 @@ body {
     width: 12.5%;
     float: left;
 }
-@media (min-width: 768px) {
-    .col-sm-8r {
-        width: 12.5%;
-        float: left;
-    }
-}
+/*@media (min-width: 768px) {*/
+
+/*}*/
 @media (min-width: 992px) {
     .col-md-8r {
         width: 12.5%;

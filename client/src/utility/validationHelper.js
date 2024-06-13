@@ -26,6 +26,13 @@ class validationHelper {
     static IsEmpty(value) {
         return value.length === 0;
     }
+
+    static IsColor(value) {
+        return value.length === 0;
+    }
+    static IsSize(value) {
+        return value.length === 0;
+    }
 }
 
 export default validationHelper

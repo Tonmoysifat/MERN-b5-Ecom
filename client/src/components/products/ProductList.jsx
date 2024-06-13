@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import StarRatings from "react-star-ratings/build/star-ratings.js";
 import ProductSkeleton from "../../skeleton/ProductSkeleton.jsx";
 import data from "bootstrap/js/src/dom/data.js";
+import NoData from "../layout/NoData.jsx";
 
 const ProductList = () => {
     const {
@@ -36,7 +37,7 @@ const ProductList = () => {
         <div className="container mt-2">
             <div className="row">
                 <div className="col-md-3 p-2">
-                    <div className="card vh-100 p-3 shadow-sm">
+                    <div className="card side-navbarHei p-3 shadow-sm">
                         <label className="form-label mt-3">Brands</label>
                         <select value={filter.brandID} onChange={async (e) => {
                             await filterOnChange("brandID", e.target.value)
@@ -91,36 +92,41 @@ const ProductList = () => {
                                     <div className="container">
                                         <div className="row">
                                             {
-                                                ListProduct.map((item, i) => {
-                                                    let price = <p
-                                                        className="bodyMedium text-dark my-1">${item["price"]} </p>
-                                                    if (item["discount"] === true) {
-                                                        price = <p
-                                                            className="bodyMedium text-dark my-1">
-                                                            $<strike>{item["price"]}</strike> {item["discountPrice"]}
-                                                        </p>
-                                                    }
-                                                    return (
-                                                        <div key={i}
-                                                             className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                                                            <Link to={`/details/${item["_id"]}`}
-                                                                  className="card shadow-sm h-100 rounded-3 bg-white">
-                                                                <img className="w-100 rounded-top-2"
-                                                                     src={item["image"]}/>
-                                                                <div className="card-body">
-                                                                    <p className="bodySmal text-secondary my-1">{item["title"]}</p>
-                                                                    {price}
+                                                ListProduct.length===0?(
+                                                    <NoData text="No Product Available At This Moment"/>
+                                                ):(
+                                                    ListProduct.map((item, i) => {
+                                                        let price = <p
+                                                            className="bodyMedium text-dark my-1">${item["price"]} </p>
+                                                        if (item["discount"] === true) {
+                                                            price = <p
+                                                                className="bodyMedium text-dark my-1">
+                                                                $<strike>{item["price"]}</strike> {item["discountPrice"]}
+                                                            </p>
+                                                        }
+                                                        return (
+                                                            <div key={i}
+                                                                 className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
+                                                                <Link to={`/details/${item["_id"]}`}
+                                                                      className="card shadow-sm h-100 rounded-3 bg-white">
+                                                                    <img className="w-100 rounded-top-2"
+                                                                         src={item["image"]}/>
+                                                                    <div className="card-body">
+                                                                        <p className="bodySmal text-secondary my-1">{item["title"]}</p>
+                                                                        {price}
 
-                                                                    <StarRatings
-                                                                        rating={parseFloat(item["star"])}
-                                                                        starRatedColor="red"
-                                                                        starDimension="15px"
-                                                                        starSpacing="2px"/>
-                                                                </div>
-                                                            </Link>
-                                                        </div>
-                                                    )
-                                                })
+                                                                        <StarRatings
+                                                                            rating={parseFloat(item["star"])}
+                                                                            starRatedColor="red"
+                                                                            starDimension="15px"
+                                                                            starSpacing="2px"/>
+                                                                    </div>
+                                                                </Link>
+                                                            </div>
+                                                        )
+                                                    })
+                                                )
+
                                             }
 
                                         </div>

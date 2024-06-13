@@ -26,7 +26,7 @@ const WishList = () => {
         )
     } else if (WishList.length === 0) {
         return (
-            <NoData/>
+            <NoData text="No Product Added To The Wish List"/>
         )
     } else {
         return (

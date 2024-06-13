@@ -34,27 +34,33 @@ const AppNavbar = () => {
     return (<div>
         <div className="container-fluid text-white p-2 bg-success">
             <div className="container">
-                <div className="row justify-content-around">
-                    <div className="col-md-6">
+                <div className="row align-items-center justify-content-around">
+                    <div className="col-xs-12 col-md-6">
                             <span>
-                                <span className="f-12">
+                                <span className="fs-6">
                                     <i className="bi bi-envelope"></i> Support@sellmode.com
                                 </span>
-                                <span className="f-12 mx-2">
-                                    <i className="bi bi-envelope"></i> 01757416917
+                                <span className="fs-6 mx-2">
+                                    <i className="bi bi-phone"></i> 01757416917
                                 </span>
                             </span>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-xs-12 col-md-6">
                             <span className="float-end">
                                 <span className="bodySmal mx-2">
-                                    <i className="bi bi-whatsapp"></i>
+                                    <a href="https://wa.me/01757416917?text=Hello%20there!" target="_blank" className="text-white" rel="noopener noreferrer">
+                                    <i className="bi bi-whatsapp fs-5"></i>
+                                    </a>
                                 </span>
                                 <span className="bodySmal mx-2">
-                                    <i className="bi bi-youtube"></i>
+                                    <a href="https://www.youtube.com/channel/UCt4vNYVKZ4-TUH0kBGe-gfw" className="text-white" target="_blank">
+                                    <i className="bi bi-youtube fs-5"></i>
+                                    </a>
                                 </span>
-                                <span className="bodySmal">
-                                    <i className="bi bi-facebook"></i>
+                                <span className="bodySmal mx-2">
+                                    <a href="https://www.facebook.com/ahamedtonmuysifat23" className="text-white" target="_blank">
+                                    <i className="bi bi-facebook fs-5"></i>
+                                    </a>
                                 </span>
                             </span>
                     </div>
@@ -79,28 +85,20 @@ const AppNavbar = () => {
                                 <Link to={isLogin() ? "/cart" : "/login"} type="button"
                                       className="btn ms-4 btn-light position-relative">
                                    <i className="bi text-dark bi-bag"></i> Cart
-                                    {
-                                        CartCount > 0 && (
-                                            <span
-                                                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                    {CartCount > 0 && (<span
+                                            className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
                                        {CartCount}
-                                                <span className="visually-hidden">unread messages</span>
-                                    </span>
-                                        )
-                                    }
+                                            <span className="visually-hidden">unread messages</span>
+                                    </span>)}
                                 </Link>
                                 <Link to={isLogin() ? "/wish" : "/login"} type="button"
                                       className="btn ms-4 btn-light position-relative">
                                    <i className="bi text-dark bi-heart"></i> Wish
-                                    {
-                                        WishCount > 0 && (
-                                            <span
-                                                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                                    {WishCount > 0 && (<span
+                                            className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
                                        {WishCount}
-                                                <span className="visually-hidden">unread messages</span>
-                                    </span>
-                                        )
-                                    }
+                                            <span className="visually-hidden">unread messages</span>
+                                    </span>)}
                                 </Link>
 
                                 <Link to={isLogin() ? "/orders" : "/login"} type="button"
@@ -124,13 +122,16 @@ const AppNavbar = () => {
                             </Link>
                         </div>
                         {isLogin() ? (<>
-                                <Link type="button" className="btn mt-4 mt-lg-0 ms-0 ms-lg-3 btn-success d-flex justify-content-center"
+                                <Link type="button"
+                                      className="btn mt-4 mt-lg-0 ms-0 ms-lg-3 btn-success d-flex justify-content-center"
                                       to="/profile">Profile</Link>
-                                <Link onClick={onLogout} type="button" className="btn ms-0 ms-lg-3 mt-4 mt-lg-0 btn-success d-flex justify-content-center"
+                                <Link onClick={onLogout} type="button"
+                                      className="btn ms-0 ms-lg-3 mt-4 mt-lg-0 btn-success d-flex justify-content-center"
                                 >Logout</Link>
                             </>
 
-                        ) : (<Link to="/login" type="button" className="btn mt-4 mt-lg-0 ms-0 ms-lg-3 btn-success d-flex justify-content-center">Login</Link>
+                        ) : (<Link to="/login" type="button"
+                                   className="btn mt-4 mt-lg-0 ms-0 ms-lg-3 btn-success d-flex justify-content-center">Login</Link>
 
                         )}
 

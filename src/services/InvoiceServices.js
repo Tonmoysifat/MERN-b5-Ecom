@@ -57,8 +57,8 @@ const createInvoiceService = async (req) => {
     // Transaction and validation Ids
     let tran_id = Math.floor(10000000 + Math.random() * 90000000);
     let val_id = 0;
-    let delivery_status = "panding"
-    let payment_status = "panding"
+    let delivery_status = "pending"
+    let payment_status = "pending"
 
 
     // create Invoice

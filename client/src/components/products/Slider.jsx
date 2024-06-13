@@ -33,12 +33,14 @@ const Slider = () => {
                                 }
                                 return (
                                     <div key={i} className={active} data-bs-interval="10000">
-                                        <div className="container">
-                                            <div className="row justify-content-center">
+                                        <div className="container-fluid">
+                                            <div className="row px-lg-5 justify-content-center">
                                                 <div className="col-12 col-lg-5 col-sm-12 col-md-5 p-5">
-                                                    <h1 className="headline-1">{item["title"]}</h1>
+                                                    <h1 style={{color:"#00442d"}} className="headline-1 fw-bolder">{item["title"]}</h1>
+                                                    <p className="h2 fw-bolder">{item["price"]}</p>
                                                     <p>{item["des"]}</p>
-                                                    <Link to={`details/${item["productID"]}`} className="btn text-white btn-success px-5">Buy
+                                                    <Link to={`details/${item["productID"]}`}
+                                                          className="btn bg-dark text-white btn-success px-5">Buy
                                                         Now</Link>
                                                 </div>
                                                 <div className="col-12 col-lg-5 col-sm-12 col-md-5 p-5">

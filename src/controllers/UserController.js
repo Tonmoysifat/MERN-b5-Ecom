@@ -9,7 +9,7 @@ exports.VerifyLogin = async (req, res) => {
     let result = await verifyOTPService(req);
     if (result["status"] === "Success") {
         let cookieOptions = {
-            expires: new Date(Date.now() + 24 * 60*60 * 1000),
+            expires: new Date(Date.now() + 480 * 60*60 * 1000),
             httponly: false
         }
         res.cookie("token",result["token"],cookieOptions)
@@ -22,7 +22,7 @@ exports.VerifyLogin = async (req, res) => {
 }
 exports.UserLogout = (req,res)=>{
     let cookieOptions = {
-        expires: new Date(Date.now() - 24 * 60*60 * 1000),
+        expires: new Date(Date.now() - 480 * 60*60 * 1000),
         httponly: false
     }
     res.cookie("token","",cookieOptions)

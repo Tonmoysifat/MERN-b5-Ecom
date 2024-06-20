@@ -31,10 +31,10 @@ const AppNavbar = () => {
             }
         })()
     }, []);
-    return (<div>
-        <div className="container-fluid text-white p-2 bg-success">
+    return (<>
+        <div className="container-fluid d-none d-md-block text-white p-2 bg-success">
             <div className="container">
-                <div className="row align-items-center justify-content-around">
+                <div className="row  align-items-center justify-content-around">
                     <div className="col-xs-12 col-md-6">
                             <span>
                                 <span className="fs-6">
@@ -48,17 +48,20 @@ const AppNavbar = () => {
                     <div className="col-xs-12 col-md-6">
                             <span className="float-end">
                                 <span className="bodySmal mx-2">
-                                    <a href="https://wa.me/01757416917?text=Hello%20there!" target="_blank" className="text-white" rel="noopener noreferrer">
+                                    <a href="https://wa.me/01757416917?text=Hello%20there!" target="_blank"
+                                       className="text-white" rel="noopener noreferrer">
                                     <i className="bi bi-whatsapp fs-5"></i>
                                     </a>
                                 </span>
                                 <span className="bodySmal mx-2">
-                                    <a href="https://www.youtube.com/channel/UCt4vNYVKZ4-TUH0kBGe-gfw" className="text-white" target="_blank">
+                                    <a href="https://www.youtube.com/channel/UCt4vNYVKZ4-TUH0kBGe-gfw"
+                                       className="text-white" target="_blank">
                                     <i className="bi bi-youtube fs-5"></i>
                                     </a>
                                 </span>
                                 <span className="bodySmal mx-2">
-                                    <a href="https://www.facebook.com/ahamedtonmuysifat23" className="text-white" target="_blank">
+                                    <a href="https://www.facebook.com/ahamedtonmuysifat23" className="text-white"
+                                       target="_blank">
                                     <i className="bi bi-facebook fs-5"></i>
                                     </a>
                                 </span>
@@ -67,7 +70,7 @@ const AppNavbar = () => {
                 </div>
             </div>
         </div>
-        <nav className="navbar shadow-sm sticky-top bg-white navbar-expand-lg navbar-light py-3">
+        <nav className="navbar shadow-sm  bg-white navbar-expand-lg sticky-top navbar-light py-3">
             <div className="container">
                 <Link className="navbar-brand" to="/">
                     <img className="img-fluid" src={logo} alt="" width="96px"/>
@@ -86,18 +89,18 @@ const AppNavbar = () => {
                                       className="btn ms-4 btn-light position-relative">
                                    <i className="bi text-dark bi-bag"></i> Cart
                                     {CartCount > 0 && (<span
-                                            className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                        className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
                                        {CartCount}
-                                            <span className="visually-hidden">unread messages</span>
+                                        <span className="visually-hidden">unread messages</span>
                                     </span>)}
                                 </Link>
                                 <Link to={isLogin() ? "/wish" : "/login"} type="button"
                                       className="btn ms-4 btn-light position-relative">
                                    <i className="bi text-dark bi-heart"></i> Wish
                                     {WishCount > 0 && (<span
-                                            className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                                        className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
                                        {WishCount}
-                                            <span className="visually-hidden">unread messages</span>
+                                        <span className="visually-hidden">unread messages</span>
                                     </span>)}
                                 </Link>
 
@@ -105,6 +108,31 @@ const AppNavbar = () => {
                                       className="btn ms-4 btn-light position-relative">
                                    <i className="bi text-dark  bi-truck"></i> Orders
                                 </Link>
+                                <div className="d-block d-md-none my-4 mx-4" style={{color:"#0d6efd"}}>
+                                    <div className="mb-3">
+                                        <i className="bi bi-envelope mb-3"></i> Support@sellmode.com
+                                    </div>
+                                    <div className="mb-3">
+                                        <i className="bi bi-phone mb-3"></i> 01757416917
+                                    </div>
+                                    <div>
+                                        <a href="https://wa.me/01757416917?text=Hello%20there!" target="_blank"
+                                           className="bodySmal me-3 mt-3" rel="noopener noreferrer">
+                                    <i className="bi bi-whatsapp fs-5"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/channel/UCt4vNYVKZ4-TUH0kBGe-gfw"
+                                       className="bodySmal me-3 mt-3" target="_blank">
+                                    <i className="bi bi-youtube fs-5"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/ahamedtonmuysifat23"
+                                       className="bodySmal me-3 mt-3"
+                                       target="_blank">
+                                    <i className="bi bi-facebook fs-5"></i>
+                                    </a>
+                                    </div>
+
+                                </div>
+
                             </span>
                     </ul>
 
@@ -139,7 +167,7 @@ const AppNavbar = () => {
                 </div>
             </div>
         </nav>
-    </div>);
+    </>);
 };
 
 export default AppNavbar;

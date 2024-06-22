@@ -16,11 +16,13 @@ const AppNavbar = () => {
     const onLogout = async () => {
         let confirmation = await DeleteAlert("You Will Redirect To Your Home Page And For Some Features You Have To Login Again", "Logout")
         if (confirmation) {
-            // Cookies.set("token","")
             await UserLogoutRequest();
             sessionStorage.clear();
             localStorage.clear();
             window.location.href = "/"
+            if (isLogin()) {
+                Cookies.set("token","")
+            }
         }
     }
     useEffect(() => {

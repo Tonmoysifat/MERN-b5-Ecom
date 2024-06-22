@@ -10,7 +10,7 @@ const AppLayout = (props) => {
             {props.children}
             <Toaster
                 position="top-center"
-                reverseOrder={false}
+                // reverseOrder={false}
             />
             <AppFooter/>
         </div>

@@ -19,10 +19,10 @@ const AppNavbar = () => {
             await UserLogoutRequest();
             sessionStorage.clear();
             localStorage.clear();
-            window.location.href = "/"
             if (isLogin()) {
                 Cookies.set("token","")
             }
+            window.location.href = "/"
         }
     }
     useEffect(() => {

@@ -3,7 +3,7 @@ const {userOTPService, verifyOTPService, saveProfileService, readProfileService}
 
 exports.UserOTP = async (req, res) => {
     let result = await userOTPService(req);
-    res.json(result);
+    return res.status(200).json(result)
 }
 exports.VerifyLogin = async (req, res) => {
     let result = await verifyOTPService(req);
@@ -13,10 +13,10 @@ exports.VerifyLogin = async (req, res) => {
             httponly: false
         }
         res.cookie("token",result["token"],cookieOptions)
-        res.json(result);
+        return res.status(200).json(result)
     }
     else{
-        res.json(result);
+        return res.status(200).json(result)
     }
 
 }
@@ -26,17 +26,17 @@ exports.UserLogout = (req,res)=>{
         httponly: false
     }
     res.cookie("token","",cookieOptions)
-    res.json({status: "Success", message: "Logout Successfully"});
+    return res.status(200).json({status: "Success", message: "Logout Successfully"});
 }
 exports.CreateProfile = async (req, res) => {
     let result = await saveProfileService(req);
-    res.json(result);
+    return res.status(200).json(result)
 }
 exports.UpdateProfile = async (req, res) => {
     let result = await saveProfileService(req);
-    res.json(result);
+    return res.status(200).json(result)
 }
 exports.ReadProfile = async (req, res) => {
     let result = await readProfileService(req);
-    res.json(result);
+    return res.status(200).json(result)
 }

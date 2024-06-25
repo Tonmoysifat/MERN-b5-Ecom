@@ -2,9 +2,9 @@ const {FeaturesListService,LegalDetailsService} = require("../services/FeaturesS
 
 exports.FeaturesList = async (req, res) => {
     let result = await FeaturesListService();
-    res.json(result);
+    return res.status(200).json(result)
 }
 exports.LegalDetails = async (req, res) => {
     let result = await LegalDetailsService(req);
-    res.json(result);
+    return res.status(200).json(result)
 }

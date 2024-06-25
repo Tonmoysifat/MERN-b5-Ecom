@@ -19,9 +19,9 @@ const AppNavbar = () => {
             await UserLogoutRequest();
             sessionStorage.clear();
             localStorage.clear();
-            if (isLogin()) {
-                Cookies.set("token","")
-            }
+            // if (isLogin()) {
+            //     Cookies.set("token","")
+            // }
             window.location.href = "/"
         }
     }

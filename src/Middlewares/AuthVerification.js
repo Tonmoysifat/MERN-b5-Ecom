@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     }
     let decoded = DecodeToken(token)
     if (decoded === null) {
-        return res.json({status: "Fail", message: "Unauthorized"})
+        return res.status(401).json({status: "Fail", message: "Unauthorized"})
     } else {
         let email = decoded["email"]
         let user_id = decoded["user_id"]
